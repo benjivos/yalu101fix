@@ -4,8 +4,9 @@ This tweak fixes the loading of substrate when completing the jailbreak with sam
 
 1. Install theos-jailed (https://github.com/kabiroberai/theos-jailed/wiki/Installation)
 2. Put mach_portal+yalu-b3.ipa in top directory
-3. Generate provisioning profile with app group (any name) and matching BUNDLE_ID in Makefile
-4. To install, from yalu101 directory type:
+3. Put .deb packages that you want to install when jailbreaking in yalu101/Resources/debs directory
+4. Generate provisioning profile with app group (any name) and matching BUNDLE_ID in Makefile
+5. To install, from yalu101 directory type:
   * make package install PROFILE=XXX.mobileprovision
 
 Many thanks to qwertyoruiopz and marcograssi by supplying the jailbreak!

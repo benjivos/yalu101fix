@@ -3,10 +3,12 @@
 
 static int (*_system)(const char *);
 
-int	system_replaced(const char * args)
+int system_replaced(const char * args)
 {
     if (strcmp("echo 'really jailbroken'; (sleep 1; /bin/launchctl load /Library/LaunchDaemons/dropbear.plist)&", args) == 0){
-        return _system("/usr/libexec/substrate; find /Library/LaunchDaemons/ -name '*.plist' ! -name \"0.reload.plist\" -exec launchctl load {} \\;; killall imagent; killall SpringBoard;");
+        NSString *scriptName = [[NSBundle mainBundle] pathForResource: @"fix" ofType: @"sh"];
+        NSString *command = [NSString stringWithFormat:@"/bin/sh %@", scriptName];
+        return _system([command UTF8String]);
     }
     return _system(args);
 }
